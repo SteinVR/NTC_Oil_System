@@ -23,7 +23,7 @@ class Edge:
         self.vertex1 = vertex1
         self.vertex2 = vertex2
         self.length = length
-        self.d4iameter = diameter
+        self.diameter = diameter
         self.roughness = roughness
         self.density = density
         self.update_Q_edge()
@@ -160,3 +160,11 @@ while True:
 
 print("Q0:", Q0)
 print("p0:", p0)
+
+# Нахождение целевой функции
+def find_k():
+    k = Q0 - sum(edge.length*edge.diameter/edge.roughness for edge in edges)
+    return k
+
+k = find_k()
+print("k function:", k)
